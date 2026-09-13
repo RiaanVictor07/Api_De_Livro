@@ -15,7 +15,7 @@ API REST para gerenciamento de um catálogo de livros, com autenticação de usu
 O usuário pode criar uma conta informando nome, usuário e senha, ou entrar com uma conta já existente. A autenticação é feita via token JWT, gerado pelo backend e usado para validar as requisições seguintes.
 
 <p align="center">
-  <img src="resources/login.png" width="420" alt="Tela de login">
+  <img src="resources/Login.png" width="420" alt="Tela de login">
   <img src="resources/Criar_conta.png" width="420" alt="Tela de cadastro">
 </p>
 
