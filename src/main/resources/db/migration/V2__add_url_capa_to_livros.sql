@@ -1,0 +1,2 @@
+ALTER TABLE livros
+    ADD COLUMN url_capa VARCHAR(500);

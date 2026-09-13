@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApiLivro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <span class="logo" onclick="irParaHome()">ApiLivro</span>
+  <div class="header-actions">
+    <button class="config-link" onclick="sair()">Sair</button>
+    <button class="theme-toggle" id="botaoTema" onclick="alternarTema()">Tema escuro</button>
+  </div>
+</header>
+
+<main>
+
+  <section id="pageLogin" class="page">
+    <div class="login-wrap">
+      <div class="login-card">
+        <h1>Entrar</h1>
+        <p class="subtitle">Acesse sua conta para continuar</p>
+
+        <div id="erroLogin" class="erro-login">Preencha usuário e senha.</div>
+
+        <div class="campo">
+          <label for="campoUsuario">Usuário</label>
+          <input id="campoUsuario" type="text" placeholder="seu usuário">
+        </div>
+        <div class="campo">
+          <label for="campoSenha">Senha</label>
+          <input id="campoSenha" type="password" placeholder="sua senha">
+        </div>
+
+        <button class="btn-primario" onclick="fazerLogin()">Entrar</button>
+
+        <p class="login-nota">Não tem conta? <a href="#" onclick="trocarPagina('pageRegistro'); return false;">Criar conta</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pageRegistro" class="page">
+    <div class="login-wrap">
+      <div class="login-card">
+        <h1>Criar conta</h1>
+        <p class="subtitle">Preencha seus dados para começar</p>
+
+        <div id="erroRegistro" class="erro-login">Preencha todos os campos.</div>
+
+        <div class="campo">
+          <label for="campoNomeRegistro">Nome</label>
+          <input id="campoNomeRegistro" type="text" placeholder="seu nome">
+        </div>
+        <div class="campo">
+          <label for="campoUsuarioRegistro">Usuário</label>
+          <input id="campoUsuarioRegistro" type="text" placeholder="escolha um usuário">
+        </div>
+        <div class="campo">
+          <label for="campoSenhaRegistro">Senha</label>
+          <input id="campoSenhaRegistro" type="password" placeholder="crie uma senha">
+        </div>
+
+        <button class="btn-primario" onclick="fazerRegistro()">Criar conta</button>
+
+        <p class="login-nota">Já tem conta? <a href="#" onclick="trocarPagina('pageLogin'); return false;">Entrar</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pageHome" class="page">
+    <h1 id="boasVindas" class="boas-vindas">Seja bem-vindo!</h1>
+
+    <div class="filtros">
+      <input id="campoBusca" type="text" placeholder="Buscar por nome..." oninput="renderizarListas()">
+      <select id="filtroGenero" onchange="renderizarListas()">
+        <option value="">Todos os gêneros</option>
+      </select>
+    </div>
+
+    <div class="secao-titulo">Adicionados recentemente</div>
+    <div id="listaRecentes" class="grid-livros"></div>
+
+    <div class="secao-titulo">Mais avaliados do momento</div>
+    <div id="listaAvaliados" class="grid-livros"></div>
+  </section>
+
+  <section id="pageDetalhe" class="page">
+    <button class="voltar-btn" onclick="irParaHome()">&larr; Voltar para a lista</button>
+
+    <div class="detalhe-grid">
+      <img id="detalheCapa" class="detalhe-capa" src="" alt="capa do livro">
+      <div>
+        <h1 class="detalhe-nome" id="detalheNome"></h1>
+        <p class="detalhe-autor" id="detalheAutor"></p>
+        <div class="tags" id="detalheTags"></div>
+        <div class="detalhe-sinopse-titulo">Sinopse</div>
+        <p class="detalhe-sinopse-texto" id="detalheSinopse"></p>
+      </div>
+    </div>
+
+    <div class="secao-titulo">Você também pode gostar</div>
+    <div id="listaSugestoes" class="grid-livros"></div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

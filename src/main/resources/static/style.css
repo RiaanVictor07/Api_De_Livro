@@ -1,0 +1,275 @@
+:root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --surface-2: #eef3fb;
+    --border: #d6e2f2;
+    --text: #10233d;
+    --text-muted: #5c7290;
+    --accent: #1d63d6;
+    --accent-hover: #164da8;
+    --accent-text: #ffffff;
+    --danger: #c23b3b;
+    --radius: 14px;
+    --font: "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0b0713;
+    --surface: #171022;
+    --surface-2: #1f1730;
+    --border: #362a4d;
+    --text: #f1ecfb;
+    --text-muted: #a698c4;
+    --accent: #9b5de5;
+    --accent-hover: #b57cec;
+    --accent-text: #14081f;
+    --danger: #ef6a6a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  button, input, select { font-family: inherit; }
+
+  .app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .app-header .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    cursor: pointer;
+  }
+
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+
+  .theme-toggle {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+
+  .config-link {
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  .page { display: none; }
+  .page.ativo { display: block; }
+
+  .login-wrap {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .login-card h1 { font-size: 22px; margin: 0 0 6px; }
+
+  .login-card p.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 24px;
+  }
+
+  .campo { margin-bottom: 16px; }
+
+  .campo label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .campo input {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .campo input:focus { outline: none; border-color: var(--accent); }
+
+  .btn-primario {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: var(--accent-text);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .btn-primario:hover { background: var(--accent-hover); }
+
+  .erro-login {
+    color: var(--danger);
+    font-size: 13px;
+    margin-bottom: 14px;
+    display: none;
+  }
+
+  .login-nota {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+
+  .filtros input, .filtros select {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .filtros input { flex: 1; min-width: 180px; }
+
+  .secao-titulo { font-size: 17px; font-weight: 600; margin: 28px 0 14px; }
+
+  .boas-vindas { font-size: 24px; margin: 0 0 20px; }
+
+  .grid-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  .livro-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .livro-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+  .livro-capa {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    background: var(--surface-2);
+    display: block;
+  }
+
+  .livro-info { padding: 10px 12px 14px; }
+
+  .livro-titulo {
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .livro-autor { font-size: 12px; color: var(--text-muted); margin: 0; }
+
+  .estado-vazio, .estado-erro {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .estado-erro { border-color: var(--danger); color: var(--danger); }
+
+  .voltar-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 18px;
+  }
+
+  .detalhe-grid { display: grid; grid-template-columns: 240px 1fr; gap: 28px; }
+
+  .detalhe-capa {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+
+  .detalhe-nome { font-size: 26px; margin: 0 0 6px; }
+  .detalhe-autor { color: var(--text-muted); font-size: 15px; margin: 0 0 18px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+
+  .tag {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+
+  .detalhe-sinopse-titulo { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+
+  .detalhe-sinopse-texto {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text);
+    max-width: 68ch;
+  }
+
+  @media (max-width: 640px) {
+    .detalhe-grid { grid-template-columns: 1fr; }
+    .detalhe-capa { max-width: 220px; margin: 0 auto; }
+  }
