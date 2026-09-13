@@ -19,19 +19,19 @@ public class AutoraService {
     }
 
     public AutoraResponseDto salvarAutora(AutoraRequestDto requestDTO) {
-        // 1. Converte RequestDTO para Model
+
         AutoraModel autora = new AutoraModel();
         autora.setNome(requestDTO.nome());
 
-        // 2. Salva no banco via Repository
+
         AutoraModel autoraSalva = autoraRepository.save(autora);
 
-        // 3. Converte o Model salvo para ResponseDTO e retorna
+
         return new AutoraResponseDto(autoraSalva.getId(), autoraSalva.getNome());
     }
 
     public List<AutoraResponseDto> listarAutoras() {
-        // 1. Busca todos os models e converte cada um para ResponseDTO
+
         return autoraRepository.findAll().stream()
                 .map(autora -> new AutoraResponseDto(autora.getId(), autora.getNome()))
                 .collect(Collectors.toList());
